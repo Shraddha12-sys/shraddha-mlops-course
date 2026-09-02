@@ -10,10 +10,20 @@ then commit and push this file as part of the `week01-setup` branch / PR.
 
 ```
 $ python --version
-(paste output here)
+(Python 3.11.15)
 
 $ python hello_env.py
-(paste output here)
+(Your environment is alive.
+
+                Week 1 Environment Check
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Check          ┃ Result                               ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Python version │ 3.11.15                              │
+│ Executable     │ /home/shraddha_0112/.venv/bin/python │
+│ Platform       │ Linux                                │
+└────────────────┴──────────────────────────────────────┘
+)
 ```
 
 ## Reflection (second PR)
