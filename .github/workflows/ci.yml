@@ -19,21 +19,22 @@ on:
 
 jobs:
   test:
-    runs-on-name: ubuntu-latest # or runs-on: ubuntu-latest
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: labs/week10-ci-cd
     steps:
       - uses: actions/checkout@v4
-      
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          
+          cache: pip
+          cache-dependency-path: labs/week10-ci-cd/requirements.txt
       - name: Install requirements
-        run: pip install -r labs/week10-ci-cd/requirements.txt
-        
-      - name: Run the tests
-        run: pytest -q labs/week10-ci-cd
+        run: pip install -r requirements.txt
+      - name: Run pytest
+        run: pytest -q
       # Steps are a list: each one starts with "- " and the lines under it line up (indentation matters).
       # A finished example of gaps 2 and 3 is in retrain.yml in this folder: copy its shape.
       # Two kinds of step:
