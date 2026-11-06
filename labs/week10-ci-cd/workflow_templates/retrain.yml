@@ -25,6 +25,8 @@ jobs:
           cache-dependency-path: labs/week10-ci-cd/requirements.txt
       - name: Install requirements
         run: pip install -r requirements.txt
+      - name: Data tests on the new file
+        run: pytest -q tests/test_data.py
       # YOUR CODE (gap 2): add a step named "Data tests on the new file" that runs ONLY tests/test_data.py.
       #   Same shape as the "Install requirements" step above (`- name:` then `run:`).
       #   Put it here, after the install step and before "Retrain and compare".
