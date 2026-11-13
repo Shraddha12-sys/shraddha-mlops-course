@@ -1,5 +1,14 @@
 name: ci
 
+# YOUR CODE (gap 1): add `push:` as a second trigger. Each trigger has its own `paths:` list under it
+# (the key is `paths:` with an s). The order of the two triggers does not matter. Example shape:
+#   on:
+#     pull_request:
+#       paths:
+#         - "labs/week10-ci-cd/**"
+#     push:
+#       paths:
+#         - "labs/week10-ci-cd/**"
 on:
   pull_request:
     paths:
@@ -16,7 +25,8 @@ jobs:
         working-directory: labs/week10-ci-cd
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
