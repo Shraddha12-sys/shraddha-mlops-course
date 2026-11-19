@@ -20,9 +20,11 @@ def test_model_beats_the_floor_and_the_baseline(model, data):
     # that sees only distance_km. Double brackets [["distance_km"]] keep it a one-column table:
     #     baseline = LogisticRegression().fit(X_train[[___]], y_train)
     #     baseline_auc = roc_auc_score(y_test, baseline.predict_proba(X_test[[___]])[:, 1])
-    # YOUR CODE: write those two lines, then assert:
-    #   (1) auc >= AUC_FLOOR     (2) auc >= baseline_auc + MARGIN
-    raise NotImplementedError
+    baseline = LogisticRegression().fit(X_train[["distance_km"]], y_train)
+    baseline_auc = roc_auc_score(y_test, baseline.predict_proba(X_test[["distance_km"]])[:, 1])
+    print(f"auc={auc:.4f}, baseline_auc={baseline_auc:.4f}")
+    assert auc >= AUC_FLOOR
+    assert auc >= baseline_auc + MARGIN
 
 
 def test_rain_raises_the_risk(model):
@@ -30,8 +32,8 @@ def test_rain_raises_the_risk(model):
     #     dry = risk(model, raining=___)
     #     wet = risk(model, raining=___)
     #     assert wet ___ dry
-    # YOUR CODE: assert that the same order has a higher late risk when raining=1 than when raining=0
-    raise NotImplementedError
+    dry = risk(model, raining=0)
+    wet = risk(model, raining=1)
 
 
 def test_probabilities_are_valid(model, data):
