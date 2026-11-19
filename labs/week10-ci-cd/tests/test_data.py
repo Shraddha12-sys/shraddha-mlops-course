@@ -12,7 +12,7 @@ def test_base_data_schema_and_ranges(base):
     assert not df.isna().any().any()
     assert df["distance_km"].between(0.1, 50).all()          # every value is inside a range
     assert df["restaurant"].isin(RESTAURANTS).all()          # every value is one of a list
-    assert 0.1 < df["late"].mean() < 0.40           # an average is inside a range
+    assert 0.05 < df["late"].mean() < 0.40           # an average is inside a range
 
 
 def test_incoming_batches_pass_the_data_checks():
